@@ -36,7 +36,9 @@ createServer(async (request, response) => {
 
     response.setHeader("Accept-Ranges", "bytes");
     response.setHeader("Content-Type", type);
-    response.setHeader("Cache-Control", "no-cache");
+    const reusableFrameAsset = relative === "assets/figma/figma-frames.css"
+      || relative.startsWith("assets/figma/previews/");
+    response.setHeader("Cache-Control", reusableFrameAsset ? "public, max-age=600" : "no-cache");
 
     if (range) {
       const match = /^bytes=(\d*)-(\d*)$/.exec(range);
