@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Agne Studios — independent design for thoughtful brands, digital experiences and visual stories." />
+    <link rel="icon" href="data:," />
+    <title>agne studios — independent design studio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main id="home" class="home" aria-label="Agne Studios portfolio">
+      <section class="stage" aria-label="Selected work">
+        <div class="stage-art" id="stage-art" role="group" aria-label="Project images. Click to switch images; use the arrow keys to browse." tabindex="0" hidden></div>
+        <div class="base-canvas" id="base-canvas">
+          <header class="masthead">
+            <button class="wordmark" id="studio-link" type="button">agne studios</button>
+            <button class="about-link" id="about-link" type="button">about</button>
+          </header>
+          <section class="project-list" id="project-list" aria-label="Projects"></section>
+        </div>
+      </section>
+    </main>
+
+    <section class="info-view" id="info-view" aria-modal="true" role="dialog" aria-labelledby="info-title" hidden>
+      <div class="about-page">
+        <header class="about-header">
+          <button class="wordmark" data-home type="button" aria-label="Return to projects">agne studios</button>
+          <span class="about-current" aria-current="page">about</span>
+        </header>
+
+        <h1 class="visually-hidden" id="info-title" tabindex="-1">About Agne Studios</h1>
+
+        <div class="about-layout">
+          <section class="about-left" aria-label="Contact and portrait">
+            <address class="about-contact">
+              <span>Mail</span>
+              <a href="mailto:agne.siupsinskaite@gmail.com">agne.siupsinskaite@gmail.com</a>
+              <span>Phone</span>
+              <a href="tel:+37065587436">+370 655 87 436</a>
+              <span>Instagram</span>
+              <a href="https://www.instagram.com/agne.studios/" target="_blank" rel="noopener noreferrer">agne.studios</a>
+            </address>
+
+            <figure class="about-portrait">
+              <div class="about-portrait-image" role="img" aria-label="Portrait of Agne, photographed by Gabija Labutytė"></div>
+              <figcaption>Thank you again Gabija Labutyte (photo credits)</figcaption>
+            </figure>
+          </section>
+
+          <article class="about-content">
+            <div class="about-biography">
+              <p>I build visual identities and digital experiences for brands with a strong point of view.</p>
+              <p>I've been drawn to visual communication for as long as I can remember. What started as drawing everything I could as a child grew into a fascination with how colour, type, imagery and composition shape the way something is understood and felt.</p>
+              <p>I studied Publishing and Marketing at Vilnius University, then Multimedia Design in Copenhagen, where I developed my digital and web design practice. I later completed a Master's in Graphic &amp; Visual Design at LABASAD, graduating with distinction.</p>
+              <p>Today, I work across brand identity, digital, editorial and content, helping fashion, beauty, lifestyle and culture-led brands create visual worlds that feel considered, distinctive and cohesive.</p>
+              <p>I've worked with both established and emerging brands, often at moments of growth or change: a new identity, a new website, a shift in positioning, a new collection, or simply the need for a brand to feel more like itself.</p>
+              <p>My work ranges from visual direction and web and e-commerce design to social and campaign content, video editing, email marketing and Meta advertising. Having worked on both the creative and the marketing side, I enjoy seeing how all the pieces connect, from the bigger visual idea to the details of how it shows up in the real world.</p>
+              <p>I'm interested in the space where strategy meets aesthetics: creating work that looks good, communicates clearly and makes people feel something.</p>
+              <p class="about-cta">Working on something, or thinking about it? <a href="mailto:agne.siupsinskaite@gmail.com">I'd love to hear from you.</a></p>
+            </div>
+
+            <section class="about-services" aria-labelledby="about-services-title">
+              <h2 id="about-services-title">Services</h2>
+              <div class="service-category">
+                <h3>Brand</h3>
+                <ul><li>Brand Identity</li><li>Visual Direction</li><li>Brand Guidelines</li><li>Art Direction</li></ul>
+              </div>
+              <div class="service-category">
+                <h3>Digital</h3>
+                <ul><li>Web Design</li><li>E-commerce Design</li><li>Landing Pages</li><li>Digital Art Direction</li></ul>
+              </div>
+              <div class="service-category">
+                <h3>Content &amp; Campaigns</h3>
+                <ul><li>Social Media Design</li><li>Campaign Concepts</li><li>Creative Direction</li><li>Content &amp; UGC Direction</li><li>Meta Advertising</li></ul>
+              </div>
+              <div class="service-category">
+                <h3>Motion &amp; Video</h3>
+                <ul><li>Video Editing</li><li>Motion Design</li><li>Social-First Video</li></ul>
+              </div>
+              <div class="service-category">
+                <h3>Email &amp; Marketing</h3>
+                <ul><li>Email Design</li><li>Email Campaigns</li><li>Omnisend</li><li>Marketing Assets</li></ul>
+              </div>
+              <div class="service-category">
+                <h3>Editorial &amp; Print</h3>
+                <ul><li>Editorial Design</li><li>Packaging</li><li>Print Collateral</li><li>Marketing Materials</li></ul>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
