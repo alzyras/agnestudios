@@ -24,6 +24,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
 
 .home { min-height: 100vh; min-height: 100dvh; }
 .stage { position: relative; width: 100vw; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: #fff; }
+.stage, .stage * { -webkit-user-select: none; user-select: none; }
 .base-canvas {
   position: absolute;
   z-index: 3;

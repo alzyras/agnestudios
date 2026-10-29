@@ -1,5 +1,5 @@
 const ARTBOARD = { width: 1512, height: 982 };
-const GALLERY_VERSION = "20261029";
+const GALLERY_VERSION = "20261029.1";
 
 const projects = [
   {
@@ -110,6 +110,14 @@ function prepareFrameInteractions(frame) {
   }
   const root = frameRoot(frameDocument);
   if (!root) return;
+
+  // Browsing artwork uses repeated clicks, which must not select or drag it.
+  // Parent styles cannot cross the iframe document boundary.
+  const interactionStyle = frameDocument.createElement("style");
+  interactionStyle.textContent = "html, body, body * { -webkit-user-select: none !important; user-select: none !important; } img { -webkit-user-drag: none; }";
+  frameDocument.head.append(interactionStyle);
+  for (const image of frameDocument.images) image.draggable = false;
+  frameDocument.addEventListener("dragstart", (event) => event.preventDefault());
 
   const frameWindow = frame.contentWindow;
   const background = frameWindow.getComputedStyle(root).backgroundColor;
