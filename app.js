@@ -1,5 +1,5 @@
 const ARTBOARD = { width: 1512, height: 982 };
-const GALLERY_VERSION = "20261029.1";
+const GALLERY_VERSION = "20261029.2";
 
 const projects = [
   {
@@ -125,39 +125,22 @@ function prepareFrameInteractions(frame) {
     surface.style.backgroundColor = background;
   }
   frame.dataset.background = background;
-  // The exported artboards have copy almost at their bottom edge. Cover sizing
-  // cuts it off on laptop screens; contain the complete composition instead.
-  root.style.overflow = "hidden";
-  let artworkTop = 0;
+  // Preserve the approved full-width composition and original image proportions.
   const fit = () => {
-    const widthScale = frameWindow.innerWidth / ARTBOARD.width;
-    const heightScale = frameWindow.innerHeight / ARTBOARD.height;
-    const menuBottom = list.getBoundingClientRect().bottom + 16;
-    // On shorter windows, keep grids below the fixed menu. Full-bleed photos
-    // deliberately remain behind the menu, as in the original compositions.
-    const inset = artworkTop > 180 && artworkTop * Math.min(widthScale, heightScale) < menuBottom
-      ? Math.max(0, (menuBottom - artworkTop * heightScale) / (1 - artworkTop / ARTBOARD.height))
-      : 0;
-    const scale = Math.min(
+    const scale = Math.max(
       frameWindow.innerWidth / ARTBOARD.width,
-      Math.max(1, frameWindow.innerHeight - inset) / ARTBOARD.height,
+      frameWindow.innerHeight / ARTBOARD.height,
     );
     root.style.width = `${ARTBOARD.width}px`;
     root.style.height = `${ARTBOARD.height}px`;
     root.style.position = "absolute";
     root.style.left = "50%";
-    root.style.top = `calc(50% + ${inset / 2}px)`;
+    root.style.top = "50%";
     root.style.transform = `translate(-50%, -50%) scale(${scale})`;
     root.style.transformOrigin = "center center";
     root.dataset.frameScale = String(scale);
   };
 
-  fit();
-  const initialRect = root.getBoundingClientRect();
-  const initialScale = Number(root.dataset.frameScale);
-  const imageTops = [...frameDocument.images].map((image) =>
-    (image.getBoundingClientRect().top - initialRect.top) / initialScale);
-  artworkTop = imageTops.length ? Math.min(...imageTops) : 0;
   fit();
   const scale = Number(root.dataset.frameScale);
   const rootRect = root.getBoundingClientRect();
