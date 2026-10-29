@@ -35,9 +35,10 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
   background: #fff;
   color: var(--ink);
 }
-.stage[data-project] .base-canvas { background: transparent; }
+.stage[data-project] .base-canvas { background: transparent; color: var(--gallery-ink, var(--ink)); }
 
 .stage-art { position: absolute; z-index: 2; inset: 0; overflow: hidden; background: #fff; }
+.stage-art[hidden] { display: block !important; visibility: hidden; }
 .project-frame {
   position: absolute;
   inset: 0;
@@ -50,6 +51,8 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
   pointer-events: none;
 }
 .project-frame.is-ready { opacity: 1; }
+.stage-art:focus { outline: none; }
+.stage-art:focus-visible { outline: 2px solid var(--active); outline-offset: -2px; }
 
 .masthead {
   position: absolute;
@@ -86,7 +89,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
   opacity: 0;
   pointer-events: none;
   transform: translateY(0);
-  transition: opacity 100ms linear, transform 180ms cubic-bezier(.2,.7,.2,1);
+  transition: none;
 }
 .project-marker.is-visible { opacity: 1; }
 .project-row {
@@ -99,7 +102,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
   height: 19px;
   margin: 0;
   padding: 0;
-  color: var(--ink);
+  color: var(--gallery-ink, var(--ink));
   text-align: left;
   font: 400 12px/14px Arial, Helvetica, sans-serif;
   isolation: isolate;
@@ -162,6 +165,21 @@ button:focus-visible, a:focus-visible { outline: 1px solid currentColor; outline
 .about-services h2 { margin-bottom: 4px; }
 .service-category + .service-category { margin-top: 1.5px; }
 .service-category ul { margin: 0; padding: 0; list-style: none; line-height: 1.15; }
+
+@media (max-width: 900px) {
+  .project-row { grid-template-columns: 8.424% 22% 20% 16% minmax(0, 1fr); }
+  .project-description { white-space: normal; overflow: visible; }
+  .project-row { height: 32px; }
+  .project-marker { height: 28px; }
+}
+
+@media (max-width: 600px) {
+  .project-row { grid-template-columns: 24px 100px 72px minmax(0, 1fr); }
+  .project-end { display: none; }
+  .project-row { height: 40px; }
+  .project-marker { height: 38px; }
+  .project-description { font-size: 10px; line-height: 12px; }
+}
 
 @media (max-width: 700px) {
   .about-page { padding: 14.78px 20px 32px; }
